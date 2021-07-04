@@ -28,7 +28,7 @@ from setuptools import setup, find_packages
 
 setup(name='ipinfoga',
       version='1.0',
-      description='',
+      description='IPinfoga is an OSINT tool that dumps all available IP address information such as location with country, city and latitude with longitude.',
       url='http://github.com/EntySec/IPinfoga',
       author='EntySec',
       author_email='entysec@gmail.com',
