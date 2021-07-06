@@ -24,9 +24,20 @@
 # SOFTWARE.
 #
 
+import requests
+
 from .badges import Badges
 
 
 class IPinfoga(Badges):
+    api = 'https://freegeoip.app/json'
+
     def info(self, host):
-        pass
+        data = dict()
+
+        try:
+            data = requests.get(f'{self.api}/{host}').json()
+        except Exception:
+            pass
+
+        return data
