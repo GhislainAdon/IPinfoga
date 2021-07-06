@@ -52,7 +52,7 @@ class IPinfogaCLI(IPinfoga, Badges):
         if data:
             if not self.args.output:
                 result = ""
-                result += f"[ \n{address}:\n ]"
+                result += f"\n[ {address} ]\n"
 
                 if 'country_name' in data:
                     result += f"\033[1;77m[i]\033[0m Country: {data['country_name']}\n"
