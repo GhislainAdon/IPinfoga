@@ -135,6 +135,12 @@ class IPinfogaCLI(IPinfoga, Badges):
             counter += 1
         
     def start(self):
+        if self.args.output:
+            directory = os.path.split(self.args.output)[0]
+            if not os.path.isdir(directory):
+                self.print_error(f"Directory: {directory}: does not exist!")
+                return
+
         if self.args.input:
             if not os.path.exists(self.args.input):
                 self.print_error(f"Input file: {self.args.input}: does not exist!")
