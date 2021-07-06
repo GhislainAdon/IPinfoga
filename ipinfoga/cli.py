@@ -52,28 +52,28 @@ class IPinfogaCLI(IPinfoga, Badges):
         if data:
             if not self.args.output:
                 result = ""
-                result += f"{address}:\n"
+                result += f"[ \n{address}:\n ]"
 
                 if 'country_name' in data:
                     result += f"\033[1;77m[i]\033[0m Country: {data['country_name']}\n"
                 if 'region_name' in data:
-                    result += f"\033[1;77m[i]\033[0m  Region: {data['region_name']}\n"
+                    result += f"\033[1;77m[i]\033[0m Region: {data['region_name']}\n"
                 if 'city' in data:
-                    result += f"\033[1;77m[i]\033[0m  City: {data['city']}\n"
+                    result += f"\033[1;77m[i]\033[0m City: {data['city']}\n"
                 if 'time_zone' in data:
-                    result += f"\033[1;77m[i]\033[0m  Time Zone: {data['time_zone']}\n"
+                    result += f"\033[1;77m[i]\033[0m Time Zone: {data['time_zone']}\n"
                 if 'latitude' in data:
-                    result += f"\033[1;77m[i]\033[0m  Latitude: {data['latitude']}\n"
+                    result += f"\033[1;77m[i]\033[0m Latitude: {data['latitude']}\n"
                 if 'longitude' in data:
-                    result += f"\033[1;77m[i]\033[0m  Longitude: {data['longitude']}\n"
+                    result += f"\033[1;77m[i]\033[0m Longitude: {data['longitude']}\n"
                 if 'country_code' in data:
-                    result += f"\033[1;77m[i]\033[0m  Country Code: {data['country_code']}\n"
+                    result += f"\033[1;77m[i]\033[0m Country Code: {data['country_code']}\n"
                 if 'region_code' in data:
-                    result += f"\033[1;77m[i]\033[0m  Region Code: {data['region_code']}\n"
+                    result += f"\033[1;77m[i]\033[0m Region Code: {data['region_code']}\n"
                 if 'zip_code' in data:
-                    result += f"\033[1;77m[i]\033[0m  ZIP Code: {data['zip_code']}\n"
+                    result += f"\033[1;77m[i]\033[0m ZIP Code: {data['zip_code']}\n"
                 if 'metro_code' in data:
-                    result += f"\033[1;77m[i]\033[0m  Metro Code: {data['metro_code']}"
+                    result += f"\033[1;77m[i]\033[0m Metro Code: {data['metro_code']}"
 
                 self.print_empty(result)
             else:
