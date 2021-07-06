@@ -47,17 +47,64 @@ class IPinfogaCLI(IPinfoga, Badges):
     args = parser.parse_args()
 
     def thread(self, address):
-        result = self.info(address)
+        data = self.info(address)
 
-        if result:
-            result = ""
+        if data:
             if not self.args.output:
-                self.print_success(result)
+                result = ""
+                result += f"{address}:\n"
+
+                if 'country_name' in data:
+                    result += f"\033[1;77m[i]\033[0m Country: {result['country_name']}\n"
+                if 'region_name' in data:
+                    result += f"\033[1;77m[i]\033[0m  Region: {result['region_name']}\n"
+                if 'city' in data:
+                    result += f"\033[1;77m[i]\033[0m  City: {result['city']}\n"
+                if 'time_zone' in data:
+                    result += f"\033[1;77m[i]\033[0m  Time Zone: {result['time_zone']}\n"
+                if 'latitude' in data:
+                    result += f"\033[1;77m[i]\033[0m  Latitude: {result['latitude']}\n"
+                if 'longitude' in data:
+                    result += f"\033[1;77m[i]\033[0m  Longitude: {result['longitude']}\n"
+                if 'country_code' in data:
+                    result += f"\033[1;77m[i]\033[0m  Country Code: {result['country_code']}\n"
+                if 'region_code' in data:
+                    result += f"\033[1;77m[i]\033[0m  Region Code: {result['region_code']}\n"
+                if 'zip_code' in data:
+                    result += f"\033[1;77m[i]\033[0m  ZIP Code: {result['zip_code']}\n"
+                if 'metro_code' in data:
+                    result += f"\033[1;77m[i]\033[0m  Metro Code: {result['metro_code']}"
+
+                self.print_empty(result)
             else:
+                result = ""
+                result += f"{address}:\n"
+
+                if 'country_name' in data:
+                    result += f"[i] Country: {result['country_name']}\n"
+                if 'region_name' in data:
+                    result += f"[i] Region: {result['region_name']}\n"
+                if 'city' in data:
+                    result += f"[i] City: {result['city']}\n"
+                if 'time_zone' in data:
+                    result += f"[i] Time Zone: {result['time_zone']}\n"
+                if 'latitude' in data:
+                    result += f"[i] Latitude: {result['latitude']}\n"
+                if 'longitude' in data:
+                    result += f"[i] Longitude: {result['longitude']}\n"
+                if 'country_code' in data:
+                    result += f"[i] Country Code: {result['country_code']}\n"
+                if 'region_code' in data:
+                    result += f"[i] Region Code: {result['region_code']}\n"
+                if 'zip_code' in data:
+                    result += f"[i] ZIP Code: {result['zip_code']}\n"
+                if 'metro_code' in data:
+                    result += f"[i] Metro Code: {result['metro_code']}"
+
                 with open(self.args.output, 'a') as f:
                     f.write(f"{result}\n")
 
-    def crack(self, addresses):
+    def scan(self, addresses):
         line = "/-\|"
 
         counter = 0
@@ -95,7 +142,7 @@ class IPinfogaCLI(IPinfoga, Badges):
 
             with open(self.args.input, 'r') as f:
                 addresses = f.read().strip().split('\n')
-                self.crack(addresses)
+                self.scan(addresses)
 
         elif self.args.address:
             self.print_process(f"Scanning {self.args.address}...")
