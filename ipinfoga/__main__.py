@@ -32,7 +32,7 @@ from .badges import Badges
 class IPinfoga(Badges):
     api = 'https://freegeoip.app/json'
 
-    def info(self, host):
+    def scan(self, host):
         data = dict()
 
         try:
