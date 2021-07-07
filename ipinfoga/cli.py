@@ -54,9 +54,6 @@ class IPinfogaCLI(IPinfoga, Badges):
                 result = ""
                 result += f"\n[ {address} ]\n"
 
-                if 'ip' in data:
-                    del data['ip']
-
                 for field in data.keys():
                     result += f"\033[1;77m[i]\033[0m {field.replace('_', ' ').title()}: {data[field]}\n"
 
@@ -64,9 +61,6 @@ class IPinfogaCLI(IPinfoga, Badges):
             else:
                 result = ""
                 result += f"\n[ {address} ]\n"
-
-                if 'ip' in data:
-                    del data['ip']
 
                 for field in data.keys():
                     result += f"[i] {field.replace('_', ' ').title()}: {data[field]}\n"
