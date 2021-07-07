@@ -73,6 +73,8 @@ class IPinfogaCLI(IPinfoga, Badges):
 
                 with open(self.args.output, 'a') as f:
                     f.write(f"{result}")
+            return True
+        return False
 
     def scan(self, addresses):
         line = "/-\|"
@@ -122,7 +124,8 @@ class IPinfogaCLI(IPinfoga, Badges):
 
         elif self.args.address:
             self.print_process(f"Scanning {self.args.address}...")
-            self.thread(self.args.address)
+            if not self.thread(self.args.address):
+                self.print_error("Failed to dump IP address information!")
 
         else:
             self.parser.print_help()
