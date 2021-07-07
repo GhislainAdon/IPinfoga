@@ -47,7 +47,7 @@ class IPinfogaCLI(IPinfoga, Badges):
     args = parser.parse_args()
 
     def thread(self, address):
-        data = self.info(address)
+        data = self.scan(address)
 
         if data:
             if not self.args.output:
@@ -70,7 +70,7 @@ class IPinfogaCLI(IPinfoga, Badges):
             return True
         return False
 
-    def scan(self, addresses):
+    def info(self, addresses):
         line = "/-\|"
 
         counter = 0
@@ -114,7 +114,7 @@ class IPinfogaCLI(IPinfoga, Badges):
 
             with open(self.args.input, 'r') as f:
                 addresses = f.read().strip().split('\n')
-                self.scan(addresses)
+                self.info(addresses)
 
         elif self.args.address:
             self.print_process(f"Scanning {self.args.address}...")
