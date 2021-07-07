@@ -4,11 +4,11 @@
     <a href="https://entysec.netlify.app">
         <img src="https://img.shields.io/badge/developer-EntySec-3572a5.svg">
     </a>
-    <a href="https://github.com/EntySec/CamRaptor">
+    <a href="https://github.com/EntySec/IPinfoga">
         <img src="https://img.shields.io/badge/language-Python-3572a5.svg">
     </a>
-    <a href="https://github.com/EntySec/CamRaptor/stargazers">
-        <img src="https://img.shields.io/github/stars/EntySec/CamRaptor?color=yellow">
+    <a href="https://github.com/EntySec/IPinfoga/stargazers">
+        <img src="https://img.shields.io/github/stars/EntySec/IPinfoga?color=yellow">
     </a>
 </p>
 
@@ -34,7 +34,7 @@ To use IPinfoga just type `ipinfoga` in your terminal.
 usage: ipinfoga [-h] [-t] [-o OUTPUT] [-i INPUT] [-a ADDRESS]
 
 IPinfoga is an OSINT tool that dumps all available IP address information such
-as location with country, city and latitude with longitude.
+as location with country, city, and latitude with longitude.
 
 optional arguments:
   -h, --help            show this help message and exit
