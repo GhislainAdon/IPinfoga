@@ -54,55 +54,25 @@ class IPinfogaCLI(IPinfoga, Badges):
                 result = ""
                 result += f"\n[ {address} ]\n"
 
-                if 'country_name' in data:
-                    result += f"\033[1;77m[i]\033[0m Country: {data['country_name']}\n"
-                if 'region_name' in data:
-                    result += f"\033[1;77m[i]\033[0m Region: {data['region_name']}\n"
-                if 'city' in data:
-                    result += f"\033[1;77m[i]\033[0m City: {data['city']}\n"
-                if 'time_zone' in data:
-                    result += f"\033[1;77m[i]\033[0m Time Zone: {data['time_zone']}\n"
-                if 'latitude' in data:
-                    result += f"\033[1;77m[i]\033[0m Latitude: {data['latitude']}\n"
-                if 'longitude' in data:
-                    result += f"\033[1;77m[i]\033[0m Longitude: {data['longitude']}\n"
-                if 'country_code' in data:
-                    result += f"\033[1;77m[i]\033[0m Country Code: {data['country_code']}\n"
-                if 'region_code' in data:
-                    result += f"\033[1;77m[i]\033[0m Region Code: {data['region_code']}\n"
-                if 'zip_code' in data:
-                    result += f"\033[1;77m[i]\033[0m ZIP Code: {data['zip_code']}\n"
-                if 'metro_code' in data:
-                    result += f"\033[1;77m[i]\033[0m Metro Code: {data['metro_code']}"
+                if 'ip' in data:
+                    del data['ip']
+
+                for field in data.keys():
+                    result += f"\033[1;77m[i]\033[0m {field.replace('_', ' ').title()}: {data[field]}\n"
 
                 self.print_empty(result)
             else:
                 result = ""
-                result += f"{address}:\n"
+                result += f"\n[ {address} ]\n"
 
-                if 'country_name' in data:
-                    result += f"[i] Country: {data['country_name']}\n"
-                if 'region_name' in data:
-                    result += f"[i] Region: {data['region_name']}\n"
-                if 'city' in data:
-                    result += f"[i] City: {data['city']}\n"
-                if 'time_zone' in data:
-                    result += f"[i] Time Zone: {data['time_zone']}\n"
-                if 'latitude' in data:
-                    result += f"[i] Latitude: {data['latitude']}\n"
-                if 'longitude' in data:
-                    result += f"[i] Longitude: {data['longitude']}\n"
-                if 'country_code' in data:
-                    result += f"[i] Country Code: {data['country_code']}\n"
-                if 'region_code' in data:
-                    result += f"[i] Region Code: {data['region_code']}\n"
-                if 'zip_code' in data:
-                    result += f"[i] ZIP Code: {data['zip_code']}\n"
-                if 'metro_code' in data:
-                    result += f"[i] Metro Code: {data['metro_code']}"
+                if 'ip' in data:
+                    del data['ip']
+
+                for field in data.keys():
+                    result += f"[i] {field.replace('_', ' ').title()}: {data[field]}\n"
 
                 with open(self.args.output, 'a') as f:
-                    f.write(f"{result}\n")
+                    f.write(f"{result}")
 
     def scan(self, addresses):
         line = "/-\|"
