@@ -40,4 +40,7 @@ class IPinfoga(Badges):
         except Exception:
             pass
 
+        if 'ip' in data.keys():
+            del data['ip']
+
         return data
