@@ -92,7 +92,7 @@ ipinfoga = IPinfoga()
 data = ipinfoga.scan('8.8.8.8')
 
 for field in data:
-    print(field, data)
+    print(field, data[field])
 ```
 
 ## Other tools
