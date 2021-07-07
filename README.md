@@ -89,7 +89,7 @@ There are all IPinfoga basic functions that can be used to scan specified addres
 from ipinfoga import IPinfoga
 
 ipinfoga = IPinfoga()
-data = ifinfoga.scan('8.8.8.8')
+data = ipinfoga.scan('8.8.8.8')
 
 for field in data:
     print(field, data)
