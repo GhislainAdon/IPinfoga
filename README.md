@@ -54,7 +54,7 @@ optional arguments:
 Let's scan google DNS address just for fun.
 
 ```shell
-camraptor -a 8.8.8.8
+ipinfoga -a 8.8.8.8
 ```
 
 **Scanning addresses from input file**
@@ -62,7 +62,7 @@ camraptor -a 8.8.8.8
 Let's try to use opened database of addresses with `-t` for fast scanning.
 
 ```shell
-camraptor -t -i addresses.txt -o results.txt
+ipinfoga -t -i addresses.txt -o results.txt
 ```
 
 **NOTE:** It will scan all addresses in `addresses.txt` list and save all obtained results to `results.txt`.
